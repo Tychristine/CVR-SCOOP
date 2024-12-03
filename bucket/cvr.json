@@ -21,9 +21,14 @@
         ]
     },
     "uninstaller": {
-        "script": "Remove-Item \"$env:USERPROFILE\\appdata\\local\\io.github.clash*\" -Recurse -Force -ErrorAction 'SilentlyContinue'"
+        "script": "Remove-Item \"$env:USERPROFILE\\.config\\clash-verge\" -Recurse -Force -ErrorAction 'SilentlyContinue'"
     },
-    "shortcuts": [["clash-verge.exe", "Clash Verge"]],
+    "shortcuts": [
+        [
+            "clash-verge.exe",
+            "Clash Verge"
+        ]
+    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
