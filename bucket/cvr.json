@@ -1,0 +1,38 @@
+{
+    "version": "2.0.2-c71e18e",
+    "description": "Continuation of Clash Verge - A Clash Meta GUI based on Tauri.",
+    "homepage": "https://github.com/clash-verge-rev/clash-verge-rev",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Tychristine/clash-verge-rev/releases/download/alpha/Clash.Verge_2.0.2-ae5b2cf_x64_scoop.tar",
+            "hash": "00299B1EED0ACFBC8187DE9655AF85042042B5817878840202F75560B05C98CF"
+        },
+        "arm64": {
+            "url": "https://github.com/Tychristine/clash-verge-rev/releases/download/alpha/Clash.Verge_2.0.2-ae5b2cf_arm64_scoop.tar",
+            "hash": "AEAC4CE30E8EE424A2702D0371B6CBAE1AA28DD522619BF2EC4BB5B189C3D63D"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninst*\" -Force -Recurse",
+    "installer": {
+        "script": [
+            "tar -xvzf Clash.Verge*.tar ",
+            "ensure \"$persist_dir\" | Out-Null"
+        ]
+    },
+    "uninstaller": {
+        "script": "Remove-Item \"$env:USERPROFILE\\appdata\\local\\io.github.clash*\" -Recurse -Force -ErrorAction 'SilentlyContinue'"
+    },
+    "shortcuts": [["clash-verge.exe", "Clash Verge"]],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v$version/Clash.Verge_$version_x64-setup.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v$version/Clash.Verge_$version_arm64-setup.exe#/dl.7z"
+            }
+        }
+    }
+}
